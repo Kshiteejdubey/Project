@@ -1,0 +1,175 @@
+J-query: jquery is javascript library, which provide ready made functions/ methods to work easy javascript.
+j uery divided in to 4 parts
+1- jquery
+2- jquery ui
+3- jquery data table
+4- jquery mobile
+
+
+
+1- jquery selector
+2- jquery events
+3- jquery effacts
+4- jquery animation
+5- jquery dom
+6- jquery traversing
+7- jqury no conflict
+
+
+1- hide():
+to hide any element:
+syntax:
+
+$("ele").hide();
+
+or
+
+$("ele").hide(speed);
+
+or
+
+$("ele").hide(speed, callback);
+
+
+
+2- show()
+
+to show any element:
+syntax:
+
+$("ele").show ();
+
+or
+
+$("ele").show (speed);
+
+or
+
+$("ele").show (speed, callback);
+
+
+3- toggle()
+
+this function hide element once and show once.
+
+
+4- fadeIn()
+5- fadeOut()
+6- fadeToggle()
+7- fadeTo()
+8- slideUp()
+9- slideDown()
+10 slideToggle()
+
+
+
+animation():
+
+
+DOM:
+
+val(): this method can be us to get and set value of html element.
+text(): this method can be use to get and set text data of element.
+html(); this method can be use to get/set html data of element.
+attr(): this method can be use to get/set arribute of html element.
+//setAttr():this method can be use to setAttibute to html element.
+//getattr(): this method can be use to getattribute of html element.
+removeAttr(): this method can be use to delete attribute of html element.
+css() : this method can be use to add custome css to html element.
+addClass(): this method can be use to add css class to html element.
+removeClass(): this method can be use to remove css class of html element.
+toggleClass(): this method can be use to toggle class of html element.
+appendchild();this method can be use to append any child element.
+appendTo();: this method can be use append any element to specific element. 
+insertBefore(); this method can be use to insert element before any specific element.
+
+insertAfter(): this method can be use to insert element after any specific element.
+
+removeBefore() this method can be use to delete element before any specific element.
+removeAfter(); this method can be use to delete element after any specific element.
+empty(); this method can be use to delete all the child element of any html element.
+remove(): this method can be use to delete any element with its child element.
+
+prepend(); this method can be use to append any element in pre-append mode. 
+innerHeight(): get the height of element;
+innerWidth(): get the inner width of element.
+
+
+J-query No-conflict: when we work on web , it may use many diff-2 frameworks where it may possible another framework use $ sign to start jquery code. so it may conflict jquery code with others.
+to handle this kinds of problem we can create jquery no-conflict method and use by specific keyword.
+
+
+Jquery method chaining: jquery provide facility to call list of methods in a chain uaing chaining.
+
+exa: 
+    $.noConflict(true);
+	jQuery(document).ready(function(){
+	jQuery("#btn").click(function(){
+	
+		jQuery("#dd").css("background-color","yellow").fadeOut(3000).
+		fadeIn(3000).slideUp(2000).slideDown(3000)
+		
+	
+	})
+})
+
+
+Jquery on method: this method can be use bind event with element, it is similar to eventlistener which capable to bind multiple events to element.
+
+<script type="text/javascript">
+  
+    $.noConflict(true);
+	jQuery(document).ready(function(){
+	jQuery("#txt").on({"keypress":function(){
+		$(this).css("background-color","yellow");
+	},
+	"keyup":function(){
+		$(this).css("background-color","gray");
+	},
+	"blur":function(){
+		$(this).css("background-color","green");
+	}
+	
+	})	
+	})
+
+
+
+	</script>
+
+
+Jquery ajax: jquery ajax can be use to call ajax javascript method which send request to server and get response .
+
+jquery provide three methods to call ajax services.
+1- get
+2- post
+3- ajax
+
+
+
+Jquery Datatable:
+jquery UI:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  

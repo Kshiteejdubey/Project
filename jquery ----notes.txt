@@ -1,0 +1,859 @@
+jquery:
+
+j-query is the javascript library which is developed by team developer.
+
+it make javascript task easy and best , because it is light-weight so it is fast.lib.
+
+jquery provide some featurs like
+
+effacts
+dom manipulation
+animation
+ajax service
+etc.
+
+note: j query divided in three part
+1- jquery
+2- jquery ui
+3- jquery mobile
+4- jquery datatable
+
+note: each jquery function must be start with $ sign.
+
+to write j-query code we have two method.
+1- docuemnt.ready
+2- window.load
+
+
+jquery: effacts: the function which provide effacts on the html element.
+these are several.
+1- hide()
+2- show()
+3- toggle();
+4- fadeIn();
+5- fadeOut()
+6- fadeToggle();
+7- fadeTo();
+8- slideUp();
+9- slideDown();
+10- slidetoggle();
+
+
+Jquery DOM: j-query dom provide list method to communicate with html elements as well as generate dynamic html element.
+these methods are several--
+1- val()=> this method can be use to get and set value of elements like- textbox, radiobutton, dropdown etc.
+
+2- text(); this function can be use to get and set text data of html element like- paragraph, heading, div etc.
+
+3- html(); this method can be use to get and set html data in html page.
+
+example:
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://use.fontawesome.com/d1904d4347.js"></script>
+	<script src="js/jquery.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+
+			$("#btn").click(function(){
+			
+			var n1=$("#num").val();
+			var n2=$("#num1").val();
+			var m=n1*n2;
+			$("#rr").val(m);
+			
+		})
+		})
+	</script>
+</head>
+<body>
+	enter first number<input type="text" name="" id="num"><br>
+	enter second number<input type="text" name="" id="num1"><br>
+	Your Result is <input type="text" name="" id="rr"><br>
+	<button id="btn">calculate</button>
+
+
+</body>
+</html>
+
+
+exa: validation:
+$("#pass").blur(function(){
+				if($("#pass").val().length<1)
+				{
+					$("#msg").text("Paasowrd can't empty");
+					return false;
+				}
+			})
+
+
+
+example for  password strength:
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://use.fontawesome.com/d1904d4347.js"></script>
+	<script src="js/jquery.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#pass").blur(function(){
+				if($("#pass").val().length<1)
+				{
+					$("#msg").text("Paasowrd can't empty");
+					return false;
+				}
+			})
+		$("#pass").keyup(function(){
+			var pass=$("#pass").val();
+			if(pass.length<5)
+			{
+				$("#msg").removeClass("orange");
+				$("#msg").text("Weak password");
+				$("#msg").addClass("red");
+			}
+			else if(pass.length>=5 && pass.length<10)
+			{
+				$("#msg").removeClass("red");
+				$("#msg").text("Good password");
+				$("#msg").addClass("orange");
+			}
+			else if(pass.length>=10 && pass.length<20)
+			{
+				$("#msg").removeClass("orange");
+				$("#msg").text("Strong password");
+				$("#msg").addClass("green");
+			}
+			else
+			{
+				$("#msg").removeClass("green");
+				$("#msg").text("password To large");
+				$("#msg").addClass("red");
+			}
+
+		})
+
+		})
+	</script>
+	<style type="text/css">
+		.red{color: red;}
+		.green{color: green;}
+		.orange{color: orange}
+
+	</style>
+</head>
+<body>
+	enter password<input type="password" name="" id="pass">
+<span id="msg"></span>
+	<br>
+	
+
+
+</body>
+</html>
+
+
+exa: html function.
+
+$(document).ready(function(){
+			$("#btn").click(function(){
+
+				$("#test").html("<h2>hello heading</h2>");
+
+			})
+
+		})
+
+
+
+4- addClass: this function can be use for add css class to your html element .
+which class must be define in css library.
+
+syntax:
+$("ele").addClass("classname");
+
+5- removeClass: this function can be use to removeclass which added by adclass function.
+
+syntax: 
+$("ele").removeClass("class_name"); 
+
+
+6- css (): this function can be use to add some dynamic css from jquery.
+
+syntax:
+$("ele").css("prop_name","value");
+
+
+
+
+exa: <!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://use.fontawesome.com/d1904d4347.js"></script>
+	<script src="js/jquery.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#btn").click(function(){
+
+					var color=$("#cc").val();
+					var font=$("#font").val();
+				$("#test").css({"color":color,"font-size":font+"px"});
+			})
+
+		})
+	</script>
+	<style type="text/css">
+		.red{color: red;}
+		.green{color: green;}
+		.orange{color: orange}
+
+	</style>
+</head>
+<body>
+
+Choose color	: <input type="color" id="cc"><br>
+Select font-size : <select id="font">
+<option>select color</option>
+<option value="15">15Px</option>
+<option value="20">20Px</option>
+<option value="25">25Px</option>
+<option value="35">35Px</option>
+
+	</select>
+	<button id="btn">Ok</button>
+	<div id="test">
+		<p>welcome</p>
+
+	</div>
+
+
+</body>
+</html>
+
+
+this keyword in jquery: this keyword represnt current element or class property. means like you click on element then this represnt all property of that element.
+
+
+each function: this function very much similar to javascript loop, it can traverse in  collections and get all index and value of collections.
+
+
+exa 1 :count all the heading 2 tag of page.
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://use.fontawesome.com/d1904d4347.js"></script>
+	<script src="js/jquery.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var count=0;
+			$("h2").each(function(index, value){
+			count++;
+			})
+
+		alert(count);
+		})
+	</script>
+	<style type="text/css">
+		</style>
+</head>
+<body>
+
+<div id="dd">
+<ol>
+<li>Home</li>
+<li>Products</li>
+<li>Services</li>
+<li>Contacts</li>
+<li>About us</li>
+</ol>
+
+	</div>
+<h2>welcome jquery</h2>
+<h2>welcome jquery</h2>
+<h2>welcome jquery</h2>
+<h2>welcome jquery</h2>
+<h2>welcome jquery</h2>
+<h2>welcome jquery</h2>
+<h2>welcome jquery</h2>
+<h2>welcome jquery</h2>
+
+</body>
+</html>
+
+
+
+
+exa: 2: get required li index using each function:
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://use.fontawesome.com/d1904d4347.js"></script>
+	<script src="js/jquery.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("li").each(function(index, value){
+
+				if(index==2 || index ==4)
+				{
+					$(this).css("color","red");
+				}
+
+			})
+
+		})
+	</script>
+	<style type="text/css">
+		</style>
+</head>
+<body>
+
+<div id="dd">
+<ol>
+<li>Home</li>
+<li>Products</li>
+<li>Services</li>
+<li>Contacts</li>
+<li>About us</li>
+</ol>
+
+	</div>
+<h2>welcome jquery</h2>
+<h2>welcome jquery</h2>
+<h2>welcome jquery</h2>
+<h2>welcome jquery</h2>
+<h2>welcome jquery</h2>
+<h2>welcome jquery</h2>
+<h2>welcome jquery</h2>
+<h2>welcome jquery</h2>
+
+</body>
+</html>
+
+
+
+the abouve thing using js
+
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+var x=document.getElementsByTagName("li");
+
+
+for(var i=0; i<x.length; i++)
+{
+	if(i==2 || i==4)
+	{
+		x[i].style.color="red";
+		//console.log(x[i].innerText);
+	}
+}
+		
+
+		})
+	</script>
+ 
+
+ 
+
+animate function: jquery animation can be apply through animate function it takes lots of call back and chaining by which you make dynamic animation.
+
+note: animate function can't apply with static position elements, so you need to change position of elements befone applying animation.
+
+
+exa 1: 
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://use.fontawesome.com/d1904d4347.js"></script>
+	<script src="js/jquery.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+		$("#btn").click(function(){
+			$("#dd").animate({"left":"600px","top":"500px"},4000);
+
+
+
+		})	
+
+		})
+	</script>
+	<style type="text/css">
+	#dd{
+height: 200px;
+width: 200px;
+position: absolute;
+background-color: green;
+
+	}
+		</style>
+</head>
+<body>
+<button id="btn">click me</button>
+<div id="dd">
+	</div>
+
+
+</body>
+</html>
+
+
+exa 2:
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://use.fontawesome.com/d1904d4347.js"></script>
+	<script src="js/jquery.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+		$(document).keypress(function(){
+			$("#dd").animate({"left":"600px"},4000,function(){
+
+				$(this).animate({"top":"300px"},3000,function(){
+
+					$(this).animate({"left":"0px"},3000);
+				});
+
+
+			});
+
+
+
+		})	
+
+		})
+	</script>
+	<style type="text/css">
+	#dd{
+height: 200px;
+width: 200px;
+position: absolute;
+background-color: green;
+
+	}
+		</style>
+</head>
+<body>
+<button id="btn">click me</button>
+<div id="dd">
+	</div>
+
+
+</body>
+</html>
+
+
+
+Jquery on function:
+
+this function is much similar to javascript eventListener who can attach event for specific function.
+
+exa:
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://use.fontawesome.com/d1904d4347.js"></script>
+	<script src="js/jquery.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+		$("#btn").on({"click":function(){console.log("hi")},"mouseover":function(){console.log("hello");}})
+
+		})
+	</script>
+	<style type="text/css">
+	#dd{
+height: 200px;
+width: 200px;
+position: absolute;
+background-color: green;
+
+	}
+		</style>
+</head>
+<body>
+<button id="btn">click me</button>
+<div id="dd">
+	</div>
+
+
+</body>
+</html>
+
+
+
+attaching  multiple evetns:
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://use.fontawesome.com/d1904d4347.js"></script>
+	<script src="js/jquery.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+		$("#btn").on(" click , mouseover",function(e){
+			if(e.type=="click")
+			{
+				console.log("mouse clicked");
+			}
+			else if(e.type=="mouseover")
+			{
+				console.log("mouser overed");
+			}
+		})
+
+		})
+	</script>
+	<style type="text/css">
+	#dd{
+height: 200px;
+width: 200px;
+position: absolute;
+background-color: green;
+
+	}
+		</style>
+</head>
+<body>
+<button id="btn">click me</button>
+<div id="dddy>
+<button id="btn">click me</button>
+<div id="dd">
+	</div>
+<input type="text" id="uid" />
+
+</body>
+</html>
+
+
+
+jquery method chaining:
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://use.fontawesome.com/d1904d4347.js"></script>
+	<script src="js/jquery.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+		
+		$("#btn").click(function(){
+
+ $("#dd").fadeTo(4000,0.6).animate({"left":"400px"},3000).animate({"top":"300px"},2000);
+
+		})
+		})
+	</script>
+	<style type="text/css">
+	#dd{
+height: 200px;
+width: 200px;
+position: absolute;
+background-color: green;
+
+	}
+		</style>
+</head>
+<body>
+<button id="btn">click me</button>
+<div id="dd">
+	</div>
+<input type="text" id="uid" />
+
+</body>
+</html>
+
+
+
+jquery ajax:- data base conn:- 
+
+get()
+
+ $(document).ready(function () {
+            $("#btn").click(function () {
+                $.get("http://localhost:1088/CustomerService.asmx/getcust?data="+dd, function (response, status) {
+                    console.log(response);
+                    console.log(status);
+                })
+            })
+
+
+
+        })
+    
+
+post()
+
+
+<script type="text/javascript">
+        $(document).ready(function () {
+            $("#btn").click(function () {
+                $.post("http://localhost:1088/CustomerService.asmx/getcust", function (response, status) {
+                    console.log(response);
+                    console.log(status);
+                })
+            })
+
+
+
+        })
+    
+    
+    </script>
+
+
+ajax()
+
+
+ <script type="text/javascript">
+        $(document).ready(function () {
+            $("#btn").click(function () {
+                $.ajax({ url: "http://localhost:1088/CustomerService.asmx/getcust", type: "POST",contentType:"application/json",dataType:"json",success: function (response, status) {
+                    console.log(response);
+                    console.log(status);
+                } 
+                })
+            })
+
+
+
+        })
+   
+
+ <script type="text/javascript">
+        $(document).ready(function () {
+            $("#btn").click(function () {
+                $.ajax({ url: "http://localhost:1088/CustomerService.asmx/getcust", type: "GET",contentType:"application/json",dataType:"json",success: function (response, status) {
+                    console.log(response);
+                    console.log(status);
+                } 
+                })
+            })
+
+
+
+        })
+   
+
+
+create a web service for user id which validate user exist or not if exist then it provide suggestion for new user id otherwise accept it.
+
+2- lets we have 1000 records in db table and it want load only 20 record intially and load remaining records on page scroll.
+
+
+
+solution:
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="js/jquery.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#uid").blur(function () {
+
+                var userid = $("#uid").val();
+                $.get("http://localhost:1088/CustomerService.asmx/Validate?uid=" + userid, function (response) {
+
+                    $("#msg").text(response);
+                    $("#msg").css("color", "green");
+                })
+
+            })
+
+        })
+    
+    
+    </script>
+</head>
+<body>
+
+<form>
+<fieldset><legend>Register User</legend>
+<table>
+<tr><td>User id</td><td><input type="text" id="uid" />
+<span id="msg"></span>
+</td></tr>
+
+<tr><td>User Password</td><td><input type="password" id="pass" /></td></tr>
+
+<tr><td>User Email</td><td><input type="text" id="email" /></td></tr>
+<tr><td>User Mobile</td><td><input type="text" id="mob" /></td></tr>
+<tr><td>User FName</td><td><input type="text" id="fname" /></td></tr>
+<tr><td>User LName</td><td><input type="text" id="lname" /></td></tr>
+<tr><td></td><td><input type="button" id="btn" value="Register " /></td></tr>
+
+</table>
+
+
+</fieldset>
+</form>
+
+</body>
+</html>
+
+
+jquery datatable with database
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="js/jquery.js" type="text/javascript"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" type="text/javascript"></script>
+    <link rel="Stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" />
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $.ajax({
+                url: "http://localhost:1088/CustomerService.asmx/Getemp",
+                type: "GET",
+                dataType: "json",
+                success: function (response) {
+
+
+                    $("#tbl").DataTable({ data: response, iDisplayLength: 5, columns: [
+                    { data: "id" },
+                    { data: "name" },
+                    { data: "dept" },
+                    { data: "salary", render: function (salary) {
+
+                        return "$ " + salary;
+
+                    } ,
+                    },
+                    { data: "gender", render: function (gender) {
+
+                        if (gender == "male") {
+                            return 0;
+                        }
+                        else {
+                            return 1;
+                        }
+
+                    }
+                    }
+
+                    ]
+                    });
+
+                }
+
+            })
+
+
+        })
+    
+    
+    </script>
+
+    <style type="text/css">
+    .container
+    {
+        height:auto;
+        width:80%;
+        border:2px solid gray;
+        padding:20px;
+    }
+    
+    </style>
+
+</head>
+<body>
+<div class="container">
+<table id="tbl" class="hover">
+<thead>
+<tr>
+<th>
+Id
+</th>
+<th>
+Name
+</th>
+<th>
+Department
+</th>
+<th>
+Salary
+</th>
+<th>
+Gender
+</th>
+</tr>
+
+</thead>
+<tbody>
+</tbody>
+
+</table>
+</div>
+</body>
+</html>
+
+
+
+
+                            HOW TO SHOW HIDE PASSWORD
+
+<html>
+<head>
+<title>jquery</title>
+<link rel="stylesheet" href="js/jquery-ui.min.css">
+<script src="js/jquery-3.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+</head>
+<body>
+<script>
+function call()
+{
+var  x=document.getElementById("text1");
+if(x.type=="password")
+{
+x.type="text";
+document.getElementById("y").value="hide"
+}
+else
+{
+x.type="password";
+document.getElementById("y").value="show"
+}
+}	
+</script>
+Enter you pass:-<input type="password" id="text1"><input type="button" onclick="call()" value="show"  id="y">
+</body>
+
+
+
+
+
