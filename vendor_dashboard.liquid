@@ -1,0 +1,54 @@
+{{ 'dashboard.css' | asset_url | stylesheet_tag }}
+
+<div id="vendor_loader" class="vendor_loader">
+    <img src={{ '../assets/Wedges@1x-3.0s-200px-200px.svg' | asset_url }} alt="Loading...">
+</div>
+
+<div class="vendor_dashboard" id="vendor_dashboard" >
+       <div class="sub_vendor_dashboard">
+           <div class="vendor_dashboard_txt_num">
+             <div class="vendor_dashboard_text">{{block.settings.vendor_text}}</div>
+             <div class="vendor_dashboard_num">{{block.settings.vendor_num}}</div>
+           </div>
+             <div class="vendor_dashboard_img">
+             {%if block.settings.vendor_image != blank%}
+             <img src={{block.settings.vendor_image | img_url:''}}/>
+             {%endif%}
+             </div>
+       </div>
+</div>
+
+{% schema %}
+{
+  "name": "VendorDashboard",
+  "target": "section",
+  "settings": [
+    {
+      "type":"text",
+      "id":"vendor_text",
+      "label":"write text here"
+    },
+    {
+      "type":"text",
+      "id":"vendor_num",
+      "label":"write number here"
+    },
+    {
+      "type": "image_picker",
+      "id": "vendor_image",
+      "label": "Image"
+    },
+
+  ]
+}
+{% endschema %}
+
+
+<script>
+    document.body.classList.add('vendor_loading');
+
+   setTimeout(() => {
+        document.body.classList.remove('vendor_loading');
+        document.getElementById('vendor_dashboard').style.display = 'block'; 
+    }, 5000);
+</script>
