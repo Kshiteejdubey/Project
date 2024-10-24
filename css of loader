@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+.vendor_dashboard{
+    width: calc(250px + 1vw);
+    height: 200px;
+    background-color: rgb(0, 0, 0);
+    padding: calc(10px + 0.5vw);
+    margin:calc(10px + 1vw) 0px;
+    border-radius: 10px;
+}
+.sub_vendor_dashboard{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.vendor_dashboard_img{
+     width: 100px;
+     height: 100px;
+     border-radius: 100%;
+}
+.vendor_dashboard_img img{
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+}
+.vendor_dashboard_txt_num{
+    color: white;
+    font-weight: 600;
+    font-family: "Roboto", sans-serif;
+}
+.vendor_dashboard_text{
+    font-size: 22px;
+}
+.vendor_dashboard_num{
+   font-size: 16px;
+}
+.page-width{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+
+@media (max-width:992px) {
+    .vendor_dashboard{
+        width: 50%;
+    }
+}
+
+.vendor_loader {
+    position: fixed; /* Cover the entire viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color:#E0E0E0; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999; 
+}
+
+body.vendor_loading .vendor_loader {
+    display: flex; 
+}
+
+body:not(.vendor_loading) .vendor_loader {
+    display: none; 
+}
